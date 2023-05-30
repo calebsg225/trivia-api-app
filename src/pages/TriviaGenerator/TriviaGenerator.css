@@ -1,0 +1,26 @@
+.trivia-generator-container {
+  flex-direction: column;
+}
+
+.inputs-container {
+  width: 60vw;
+  padding: 10px;
+  flex-direction: column;
+  border: solid 1px rgb(43, 189, 50);
+}
+
+.input {
+  width: 100%;
+}
+
+.input-label {
+  padding-right: 1rem;
+}
+
+.selector-container {
+  width: 100%;
+}
+
+.dropdown {
+  width: 100%;
+}
