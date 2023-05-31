@@ -9,7 +9,8 @@ const TriviaGenerator = () => {
 
   const [ sliderValue, setSliderValue ] = useState("10");
   const [ triviaCatagoryId, setTriviaCatagoryId ] = useState("0");
-  const [ selectedDifficulty, setSelectedDifficulty ] = useState(0);
+  const [ selectedDifficulty, setSelectedDifficulty ] = useState('Any');
+  const [ selectedAnswerType, setSelectedAnswerType ] = useState('Any');
 
   return (
     <div className='trivia-generator-container flex'>
@@ -21,7 +22,8 @@ const TriviaGenerator = () => {
         {[
           ['Questions:' , <Slider min="1" max="50" step="1" sliderValue={sliderValue} setSliderValue={setSliderValue}/>],
           ['Catagory:', <Dropdown catagories={triviaCatagories} setTriviaCatagoryId={setTriviaCatagoryId} />],
-          ['Difficulty:', <Buttons buttonCount={4} labels={['any', 'easy', 'medium', 'hard']} selectedButton={selectedDifficulty} setSelectedButton={setSelectedDifficulty} />]
+          ['Difficulty:', <Buttons labels={['Any', 'Easy', 'Medium', 'Hard']} selectedButton={selectedDifficulty} setSelectedButton={setSelectedDifficulty} />],
+          ['Type:', <Buttons labels={['Any', 'Multiple Choice', 'True or False']} selectedButton={selectedAnswerType} setSelectedButton={setSelectedAnswerType} />]
           ].map(([title, component], index) => {
             return (
               <div key={index} className='input flex'>

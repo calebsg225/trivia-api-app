@@ -1,16 +1,17 @@
 import './Buttons.css';
 
 interface BUTTONSPROPS {
-    buttonCount: number,
     labels: string[],
-    selectedButton: number,
+    selectedButton: string,
     setSelectedButton: Function
 }
 
-const Buttons = ({buttonCount, labels, selectedButton, setSelectedButton}:BUTTONSPROPS) => {
+const Buttons = ({labels, selectedButton, setSelectedButton}:BUTTONSPROPS) => {
   return (
     <div className='flex'>
-      
+      {labels.map((label, index) => 
+        <button onClick={() => setSelectedButton(label)} className={`button ${label === selectedButton ? 'selected-button' : 'select-button'}`} key={index}>{label}</button>
+      )}
     </div>
   )
 }
