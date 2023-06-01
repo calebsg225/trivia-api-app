@@ -1,8 +1,11 @@
 import './App.css';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import TriviaGenerator from './pages/TriviaGenerator/TriviaGenerator';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import TriviaQuestions from './pages/TriviaQuestions/TriviaQuestions';
 
 function App() {
 
@@ -19,7 +22,8 @@ function App() {
       <div className='App'>
         <Router>
           <Routes>
-            <Route path='/' element={<TriviaGenerator />} />
+            <Route path='/' element={<TriviaGenerator/>} />
+            <Route path='/trivia' element={<TriviaQuestions/>} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </Router>

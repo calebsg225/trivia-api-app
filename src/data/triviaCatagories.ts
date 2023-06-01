@@ -25,5 +25,27 @@ const triviaCatagories = [
   ['Entertainment: Japanese Anime & Manga', 31],
   ['Entertainment: Cartoon & Animations', 32]
 ]
+/*
+https://opentdb.com/api.php?amount=10
+  &category=13
+  &difficulty=medium
+  &type=boolean
+*/
 
-export default triviaCatagories;
+const dif = '&difficulty=';
+const ty = '&type=';
+
+const triviaDifficulties = [
+  ['Any', ''],
+  ['Easy', `${dif}easy`],
+  ['Medium', `${dif}medium`],
+  ['Hard:', `${dif}hard`]
+];
+
+const triviaAnswerTypes = [
+  ['Any', ''],
+  ['Multiple Choice', `${ty}multiple`],
+  ['True or False', `${ty}boolean`]
+];
+
+export { triviaCatagories, triviaDifficulties, triviaAnswerTypes };
