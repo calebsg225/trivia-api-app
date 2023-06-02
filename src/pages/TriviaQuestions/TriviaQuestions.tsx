@@ -10,15 +10,17 @@ const TriviaQuestions = () => {
   const { url, triviaQuestionCount } = location.state;
 
   const { triviaData, isTriviaLoading } = useGetTrivia(url);
-  const [ currentQuestion, setCurrentQuestion ] = useState(1);
-
-  const { results: triviaQuestions } = triviaData;
+  const [ currentQuestion, setCurrentQuestion ] = useState(0);
 
   return (
+    isTriviaLoading ? <p>Loading...</p> : 
     <div>
-      <TriviaNavigation category={triviaQuestions[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
-      <main></main>
-      <TriviaNavigation category={triviaQuestions[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
+      <TriviaNavigation category={triviaData.results[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
+      <main>
+        <div className='trivia-question'>{triviaData.results[currentQuestion].question}</div>
+        <div className='trivia-answers'></div>
+      </main>
+      <TriviaNavigation category={triviaData.results[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
     </div>
   )
 }

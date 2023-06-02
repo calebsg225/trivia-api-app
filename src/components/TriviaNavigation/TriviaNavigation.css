@@ -1,0 +1,7 @@
+.trivia-navigation-container {
+  justify-content: space-between;
+}
+
+.trivia-navigation-container p {
+  margin: 0;
+}
