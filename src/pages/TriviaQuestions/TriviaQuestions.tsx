@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
 import useGetTrivia from '../../hooks/useGetTrivia';
+import TriviaNavigation from '../../components/TriviaNavigation/TriviaNavigation';
 
 const TriviaQuestions = () => {
 
   const location = useLocation();
-  const { url } = location.state;
+  const { url, triviaQuestionCount } = location.state;
 
   const { triviaData, isTriviaLoading } = useGetTrivia(url);
+  const [ currentQuestion, setCurrentQuestion ] = useState(1);
+
+  const { results: triviaQuestions } = triviaData;
 
   return (
     <div>
-      {url}
-      <pre> {isTriviaLoading ? 'Loading Trivia...' : JSON.stringify(triviaData, undefined, 2)} </pre>
+      <TriviaNavigation category={triviaQuestions[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
+      <main></main>
+      <TriviaNavigation category={triviaQuestions[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
     </div>
   )
 }

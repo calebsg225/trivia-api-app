@@ -1,4 +1,4 @@
-const triviaCatagories = [
+const triviaCategories = [
   ['Any Catagory', 0],
   ['General Knowledge', 9],
   ['Entertainment: Books', 10],
@@ -48,4 +48,4 @@ const triviaAnswerTypes = [
   ['True or False', `${ty}boolean`]
 ];
 
-export { triviaCatagories, triviaDifficulties, triviaAnswerTypes };
+export { triviaCategories, triviaDifficulties, triviaAnswerTypes };

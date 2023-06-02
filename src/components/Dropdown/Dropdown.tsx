@@ -1,16 +1,16 @@
 import './Dropdown.css';
 
 interface DROPDOWNPROPS {
-  catagories: (string | number)[][],
-  setTriviaCatagoryId: Function
+  categories: (string | number)[][],
+  setTriviaCategoryId: Function
 }
 
-const Dropdown = ({ catagories, setTriviaCatagoryId }:DROPDOWNPROPS) => {
+const Dropdown = ({ categories, setTriviaCategoryId }:DROPDOWNPROPS) => {
 
   return (
-    <select name='catagory' className='dropdown' onChange={(e) => setTriviaCatagoryId(e.target.value)}>
-      {catagories.map(([ catagory, id ]) => 
-        <option key={id} value={id}>{catagory}</option>
+    <select name='category' className='dropdown' onChange={(e) => setTriviaCategoryId(e.target.value)}>
+      {categories.map(([ category, id ]) => 
+        <option key={id} value={id}>{category}</option>
       )}
     </select>
   )
