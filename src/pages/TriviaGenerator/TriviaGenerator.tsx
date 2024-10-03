@@ -21,7 +21,7 @@ const TriviaGenerator = () => {
   return (
     <div className='trivia-generator-container flex'>
 
-      <h1 className='title-text'>Trivia</h1>
+      <h1 className='title-text'>Trivia Generator</h1>
 
       <div className='inputs-container flex'>
 

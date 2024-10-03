@@ -10,8 +10,33 @@ interface SLIDERPROPS {
 
 const Slider = ({min, max, step, sliderValue, setSliderValue}:SLIDERPROPS) => {
 
+  const onSliderUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSliderValue(e.target.value);
+  }
+
+  const calcLeftDistance = (): string => {
+    const newVal = ((+sliderValue - +min) * 100) / (+max - +min);
+    const sliderThumbWidthRem = 1.7;
+    return `calc(${newVal}% + (${0 - newVal * (sliderThumbWidthRem*16/100)}px))`;
+  }
+
   return (
-    <input type='range' min={min} max={max} step={step} value={sliderValue} onChange={(e) => setSliderValue(e.target.value)} className='slider'/>
+    <div className='slider-container'>
+      <input 
+        type='range' 
+        min={min} 
+        max={max} 
+        step={step} 
+        value={sliderValue} 
+        onChange={(e) => onSliderUpdate(e)} 
+        className='slider'
+      />
+      
+      <output 
+        className='slider-output' 
+        style={{left: calcLeftDistance()}}
+      >{sliderValue}</output>
+    </div>
   )
 }
 

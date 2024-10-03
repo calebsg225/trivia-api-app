@@ -1,4 +1,14 @@
 
+.slider-container {
+  --slider-thumb-diameter: 1.7rem;
+  width: 100%;
+  position: relative;
+  height: var(--slider-thumb-diameter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .slider {
   outline: none;
   appearance: none;
@@ -7,6 +17,7 @@
   height: .5rem;
   opacity: .6;
   transition: opacity .2s;
+  margin: 0;
 }
 
 .slider:hover {
@@ -15,7 +26,22 @@
 
 .slider::-webkit-slider-thumb {
   appearance: none;
-  height: 1rem;
+  width: var(--slider-thumb-diameter);
+  height: var(--slider-thumb-diameter);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.slider-output {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  width: var(--slider-thumb-diameter);
   aspect-ratio: 1/1;
   background-color: var(--button-color);
+  text-align: center;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  line-height: var(--slider-thumb-diameter);
 }

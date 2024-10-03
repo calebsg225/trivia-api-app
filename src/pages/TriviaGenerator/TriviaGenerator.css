@@ -3,7 +3,7 @@
 }
 
 .inputs-container {
-  width: 60vw;
+  width: min(100vw, 40rem);
   padding: 10px;
   flex-direction: column;
 }
