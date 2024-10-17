@@ -1,7 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import Axios from 'axios';
+import { TriviaAPIData } from '../data/types';
 
-const useGetTrivia = (triviaUrl: string) => {
+const useGetTrivia = (triviaUrl: string): { 
+  triviaData: TriviaAPIData, 
+  isTriviaLoading: boolean,
+  refetchTrivia: () => void
+} => {
   const { data: triviaData, isLoading: isTriviaLoading, refetch } = useQuery(['triviaQuestions'], async () => {
     console.log(triviaUrl);
     console.log('fetching...')

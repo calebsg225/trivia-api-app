@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 
 import useGetTrivia from '../../hooks/useGetTrivia';
@@ -11,10 +11,11 @@ const TriviaQuestions = () => {
 
   const { triviaData, isTriviaLoading } = useGetTrivia(url);
   const [ currentQuestion, setCurrentQuestion ] = useState(0);
+  const [ score, setScore ] = useState(0);
 
   return (
     isTriviaLoading ? <p>Loading...</p> : 
-    <div>
+    <div className='trivia-questions-container'>
       <TriviaNavigation category={triviaData.results[currentQuestion].category} currentQuestion={currentQuestion} totalQuestions={triviaQuestionCount} changeQuestion={setCurrentQuestion}/>
       <main>
         <div className='trivia-question'>{triviaData.results[currentQuestion].question}</div>
